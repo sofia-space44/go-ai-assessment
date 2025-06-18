@@ -1,0 +1,12 @@
+json{
+  "sample_data": [
+    {
+      "url": "https://google.com",
+      "description": "Test with Google"
+    },
+    {
+      "url": "https://github.com",
+      "description": "Test with GitHub"
+    }
+  ]
+}
