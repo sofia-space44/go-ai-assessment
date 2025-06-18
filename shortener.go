@@ -172,9 +172,7 @@ func RedirectToOriginal(c *gin.Context) {
 	mapping := urlMappings[code]
 	
 	// TODO: Task 1 - Also check custom aliases
-	// if mapping == nil {
-	//     mapping = aliasMappings[code]
-	// }
+
 	
 	if mapping == nil || !mapping.IsActive {
 		c.JSON(http.StatusNotFound, gin.H{"error": "Short URL not found"})
@@ -182,11 +180,7 @@ func RedirectToOriginal(c *gin.Context) {
 	}
 	
 	// TODO: Task 1 - Check if custom alias has expired
-	// if mapping.ExpiresAt != nil && time.Now().After(*mapping.ExpiresAt) {
-	//     mapping.IsActive = false
-	//     c.JSON(http.StatusNotFound, gin.H{"error": "Short URL has expired"})
-	//     return
-	// }
+
 	
 	// Record analytics - THIS HAS A BUG (Task 2)
 	RecordClick(code, c.ClientIP())
