@@ -70,9 +70,6 @@ func RecordClick(shortCode string, clientIP string) {
 		mapping.ClickCount++
 	}
 	// TODO: Task 1 - Also check custom aliases
-	// if mapping := aliasMappings[shortCode]; mapping != nil {
-	//     mapping.ClickCount++
-	// }
 	
 	saveAnalytics()
 	saveData()
@@ -83,9 +80,7 @@ func GetAnalytics(c *gin.Context) {
 	
 	mapping := urlMappings[code]
 	// TODO: Task 1 - Also check custom aliases
-	// if mapping == nil {
-	//     mapping = aliasMappings[code]
-	// }
+
 	
 	if mapping == nil {
 		c.JSON(http.StatusNotFound, gin.H{"error": "Short URL not found"})
